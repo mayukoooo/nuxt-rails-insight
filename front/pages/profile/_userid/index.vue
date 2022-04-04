@@ -28,7 +28,7 @@
           </v-card>
         </div>
         <div class="edit">
-          <NuxtLink to="/profile/userid/edit" tag="div">
+          <NuxtLink to="/profile/edit" tag="div">
             <v-btn color="#FFAB91"><p>編集する</p></v-btn>
           </NuxtLink>
         </div>

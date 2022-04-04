@@ -4,7 +4,7 @@
   <p>My works一覧ページ</p>
   <v-row class="home" justify="center" align-content="center">
     <v-col class="item" cols="6" align="center">
-      <NuxtLink to="/myworks/1/show" tag="div">
+      <NuxtLink to="/myworks/1" tag="div">
         <v-card height="150" max-width="150">
           <v-card-text>価値観</v-card-text>
         </v-card>

@@ -5,7 +5,7 @@
       <v-col cols="12" md="12">
         <p v-for="question in questions" :key="question">
           {{  question.text }}
-          <v-textarea solo v-model="answer" label="入力欄" name="input-7-4" required></v-textarea>
+          <v-textarea solo v-model="question.answer" label="" name="input-7-4"></v-textarea>
         </p>
       </v-col>
     </v-row>
@@ -14,37 +14,52 @@
       <NuxtLink to="/" tag="div"><v-btn class="btn" @click.prevent="addAnswer" color="#FFAB91">保存</v-btn></NuxtLink>
     </div>
   </v-container>
-  
 </template>
 
 <script>
 export default {
   data() {
     return {
-      questions: []
+      questions: [],
     };
   },
   async asyncData({ $axios }) {
     const questions = await $axios.$get("/v1/questions");
     return { questions };
-    },
+  },
   methods: {
     async addAnswer() {
-      const answers = new FormData()
-      if(this.questions.length > 0) {
-        this.questions.forEach((user_id, answer, question_id) => {
-          param.append(1, this.answer, this.question_id)
+      console.log(this.questions)
+
+      // this.questions.forEach((item) => {
+      //   const answer = {
+      //     user_id: item.user_id,
+      //     question_id: item.question_id,
+      //     answer: item.answer,
+      //   }
+      //   console.log(answer)
+      //   this.$axios.post("/v1/answers", {
+      //       answer
+      //   })
+      // })
+
+      await Promise.all(this.questions.map((item) => {
+        const answer = {
+          user_id: item.user_id,
+          question_id: item.question_id,
+          answer: item.answer,
+        }
+        console.log(answer) 
+        this.$axios.post("/v1/answers", {
+          answer
         })
-      };
-      await this.$axios.post("/v1/answers", {
-        answers
-      })
+      })),
       // .then(function (res) {
-      //   console.log(res.data);
+      //     console.log(res.data);
       // })
       this.$router.push('/')
-    }
-  }
+    },
+  },
 };
 </script>
 
