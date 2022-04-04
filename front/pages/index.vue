@@ -3,7 +3,7 @@
   <HeaderMain />
   <v-row class="home" justify="center" align-content="center">
     <v-col class="item" cols="6" align="center">
-      <NuxtLink to="/works/0/create" tag="div">
+      <NuxtLink to="/works" tag="div">
         <v-card height="150" max-width="150">
           <v-card-text>価値観</v-card-text>
         </v-card>

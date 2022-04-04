@@ -7,7 +7,7 @@
       </NuxtLink>
       <v-spacer />
 
-      <NuxtLink to="/myworks/show">
+      <NuxtLink to="/myworks">
         <v-col class="icon" cols="12" sm="2">
             <img src="~/assets/img/myworks_icon.png" width="45px">
         </v-col>
