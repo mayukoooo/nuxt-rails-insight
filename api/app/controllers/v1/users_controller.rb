@@ -1,7 +1,7 @@
 class V1::UsersController < ApplicationController
   def index
     users = if params[:uid] 
-    User.find_by(uid: params[:uid])
+      User.find_by(uid: params[:uid])
     else 
       User.all
     end
@@ -20,6 +20,6 @@ class V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :icon)
+    params.require(:user).permit(:name, :email, :password, :icon, :uid)
   end
 end
