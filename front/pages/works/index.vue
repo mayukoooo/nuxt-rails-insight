@@ -43,17 +43,42 @@ export default {
       //   })
       // })
 
-      await Promise.all(this.questions.map((item) => {
+      await Promise.all(this.questions.map((async item => {
         const answer = {
           user_id: item.user_id,
           question_id: item.question_id,
           answer: item.answer,
         }
         console.log(answer) 
-        this.$axios.post("/v1/answers", {
+        await this.$axios.post("/v1/answers", {
           answer
         })
-      })),
+      }))),
+
+      // for (item of this.questions) {
+      //   const answer = {
+      //     user_id: item.user_id,
+      //     question_id: item.question_id,
+      //     answer: item.answer,
+      //   }
+      //   console.log(answer) 
+      //   await this.$axios.post("/v1/answers", {
+      //     answer
+      //   })
+      // }
+
+      // for (i = 1; i <= this.questions.length; i++){
+      //   const answer = {
+      //     user_id: item.user_id,
+      //     question_id: i,
+      //     answer: item.answer,
+      //   }
+      //   console.log(answer) 
+      //   await this.$axios.post("/v1/answers", {
+      //     answer
+      //   })
+      // }
+
       // .then(function (res) {
       //     console.log(res.data);
       // })
