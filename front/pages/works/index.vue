@@ -51,7 +51,7 @@ export default {
       await Promise.all(this.questions.map((async item => {
         console.log(item)
         const answer = {
-          user_id: this.user_id,
+          user_id: item.user_id,
           question_id: item.question_id,
           answer: item.answer,
         }
