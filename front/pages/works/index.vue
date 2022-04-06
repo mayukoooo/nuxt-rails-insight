@@ -27,6 +27,11 @@ export default {
     const questions = await $axios.$get("/v1/questions");
     return { questions };
   },
+  // computed: {
+  //   user() {
+  //     return this.$store.state.auth.currentUser;
+  //   },
+  // },
   methods: {
     async addAnswer() {
       console.log(this.questions)
@@ -44,8 +49,9 @@ export default {
       // })
 
       await Promise.all(this.questions.map((async item => {
+        console.log(item)
         const answer = {
-          user_id: item.user_id,
+          user_id: this.user_id,
           question_id: item.question_id,
           answer: item.answer,
         }
