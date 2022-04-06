@@ -31,7 +31,6 @@
 </template>
 
 <script>
-// import axios from "@/plugins/axios";
 import firebase from "@/plugins/firebase";
 
 export default {
@@ -68,24 +67,23 @@ export default {
             }
           })(error.code);
         });
-
-      const user = {
-        email: res.user.email,
-        name: this.name,
-        password: this.password,
-        uid: res.user.uid
-      };
-
-      await this.$axios.post("/v1/users", {
-          user
-        })
-        .catch(err => {
-          console.log({
-            err
-          });
+        const user = {
+          email: res.user.email,
+          name: this.name,
+          password: this.password,
+          uid: res.user.uid
+        };
+      
+    await this.$axios.post("/v1/users", {
+        user
+      })
+      .catch(err => {
+        console.log({
+          err
         });
-        
-      this.$router.push("/");
+      });
+      
+    this.$router.push("/");
     }
   }
 };
