@@ -23,71 +23,30 @@ export default {
       questions: [],
     };
   },
+  computed: {
+    user() {
+      return this.$store.state.auth.currentUser;
+    },
+  },
   async asyncData({ $axios }) {
     const questions = await $axios.$get("/v1/questions");
     return { questions };
   },
-  // computed: {
-  //   user() {
-  //     return this.$store.state.auth.currentUser;
-  //   },
-  // },
   methods: {
     async addAnswer() {
       console.log(this.questions)
-
-      // this.questions.forEach((item) => {
-      //   const answer = {
-      //     user_id: item.user_id,
-      //     question_id: item.question_id,
-      //     answer: item.answer,
-      //   }
-      //   console.log(answer)
-      //   this.$axios.post("/v1/answers", {
-      //       answer
-      //   })
-      // })
-
       await Promise.all(this.questions.map((async item => {
         console.log(item)
         const answer = {
-          user_id: item.user_id,
+          user_id: this.user.id,
           question_id: item.question_id,
           answer: item.answer,
         }
         console.log(answer) 
-        await this.$axios.post("/v1/answers", {
-          answer
-        })
+        // await this.$axios.post("/v1/answers", {
+        //   answer
+        // })
       }))),
-
-      // for (item of this.questions) {
-      //   const answer = {
-      //     user_id: item.user_id,
-      //     question_id: item.question_id,
-      //     answer: item.answer,
-      //   }
-      //   console.log(answer) 
-      //   await this.$axios.post("/v1/answers", {
-      //     answer
-      //   })
-      // }
-
-      // for (i = 1; i <= this.questions.length; i++){
-      //   const answer = {
-      //     user_id: item.user_id,
-      //     question_id: i,
-      //     answer: item.answer,
-      //   }
-      //   console.log(answer) 
-      //   await this.$axios.post("/v1/answers", {
-      //     answer
-      //   })
-      // }
-
-      // .then(function (res) {
-      //     console.log(res.data);
-      // })
       this.$router.push('/')
     },
   },
