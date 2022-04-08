@@ -11,7 +11,7 @@
     </v-row>
     <div align="center">
       <!-- <NuxtLink to="/"><v-btn @click="$router.push('/')" color="#FFAB91">もどる</v-btn></NuxtLink> -->
-      <NuxtLink to="/" tag="div"><v-btn class="btn" @click.prevent="addAnswer" color="#FFAB91">保存</v-btn></NuxtLink>
+      <v-btn class="btn" @click.prevent="addAnswer" color="#FFAB91">保存</v-btn>
     </div>
   </v-container>
 </template>
@@ -39,13 +39,13 @@ export default {
         console.log(item)
         const answer = {
           user_id: this.user.id,
-          question_id: item.question_id,
+          question_id: item.id,
           answer: item.answer,
         }
         console.log(answer) 
-        // await this.$axios.post("/v1/answers", {
-        //   answer
-        // })
+        await this.$axios.post("/v1/answers", {
+          answer
+        })
       }))),
       this.$router.push('/')
     },
@@ -55,7 +55,6 @@ export default {
 
 <style>
 .container {
-  /* margin: 0px 0px; */
   padding: 15px;
 }
 .btn {
