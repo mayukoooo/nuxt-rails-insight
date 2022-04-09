@@ -1,64 +1,64 @@
 <template>
-  <v-container class="container" align-content="center" fluid>
-    <HeaderMain />
-    <v-row>
-      <v-col cols="12" md="12">
-        <p v-for="question in questions" :key="question">
-          {{  question.text }}
-          <v-textarea solo v-model="question.answer" label="" name="input-7-4"></v-textarea>
-        </p>
-      </v-col>
-    </v-row>
-    <div align="center">
-      <!-- <NuxtLink to="/"><v-btn @click="$router.push('/')" color="#FFAB91">もどる</v-btn></NuxtLink> -->
-      <v-btn class="btn" @click.prevent="addAnswer" color="#FFAB91">保存</v-btn>
-    </div>
-  </v-container>
+<div>
+  <HeaderMain />
+    <div v-if="user"></div>
+    <!-- <p>名前：{{ user.name }}</p> -->
+  <v-row class="home" justify="center" align-content="center">
+    <v-col class="item" cols="6" align="center">
+      <NuxtLink to="/works/_id" tag="div">
+        <v-card height="150" max-width="150">
+          <v-card-text>価値観</v-card-text>
+        </v-card>
+      </NuxtLink>
+    </v-col>
+    <v-col class="item" cols="6" align="center">
+      <NuxtLink to="" tag="div">
+        <v-card height="150" max-width="150">
+          <v-card-text>カテゴリ２</v-card-text>
+        </v-card>
+      </NuxtLink>
+    </v-col>
+    <v-col class="item" cols="6" align="center">
+      <NuxtLink to="" tag="div">
+        <v-card height="150" max-width="150">
+          <v-card-text>カテゴリ３</v-card-text>
+        </v-card>
+      </NuxtLink>
+    </v-col>
+    <v-col class="item" cols="6" align="center">
+      <NuxtLink to="" tag="div">
+        <v-card height="150" max-width="150">
+          <v-card-text>カテゴリ４</v-card-text>
+        </v-card>
+      </NuxtLink>
+    </v-col>
+  </v-row>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      questions: [],
-    };
+    }
   },
   computed: {
     user() {
       return this.$store.state.auth.currentUser;
-    },
+    }
   },
-  async asyncData({ $axios }) {
-    const questions = await $axios.$get("/v1/questions");
-    return { questions };
+  created() {
+    console.log("API_KEY:", process.env.API_KEY);
   },
-  methods: {
-    async addAnswer() {
-      console.log(this.questions)
-      await Promise.all(this.questions.map((async item => {
-        console.log(item)
-        const answer = {
-          user_id: this.user.id,
-          question_id: item.id,
-          answer: item.answer,
-        }
-        console.log(answer) 
-        await this.$axios.post("/v1/answers", {
-          answer
-        })
-      }))),
-      this.$router.push('/')
-    },
-  },
-};
+}
 </script>
 
 <style>
-.container {
-  padding: 15px;
+.home {
+  margin-top: 10px;
 }
-.btn {
-  margin: 20px;
-  cursor: pointer;
+.item {
+  padding: 5px;
+  margin-bottom: 5px;
 }
 </style>

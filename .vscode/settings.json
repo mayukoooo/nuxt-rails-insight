@@ -2,6 +2,7 @@
   "cSpell.words": [
     "axios",
     "categoryid",
+    "Cyclomatic",
     "kiiro",
     "mayu",
     "myworks",
@@ -9,6 +10,9 @@
     "nuxtjs",
     "question",
     "questionid",
+    "Rakefile",
+    "rubocop",
+    "serializers",
     "userid",
     "vetur",
     "Vuetify"

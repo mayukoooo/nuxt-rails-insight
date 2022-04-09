@@ -1,48 +1,39 @@
 <template>
-<div>
-  <HeaderMain />
-  <v-row class="home" justify="center" align-content="center">
-    <v-col class="item" cols="6" align="center">
-      <NuxtLink to="/works" tag="div">
-        <v-card height="150" max-width="150">
-          <v-card-text>価値観</v-card-text>
-        </v-card>
-      </NuxtLink>
-    </v-col>
-    <v-col class="item" cols="6" align="center">
-      <NuxtLink to="" tag="div">
-        <v-card height="150" max-width="150">
-          <v-card-text>カテゴリ２</v-card-text>
-        </v-card>
-      </NuxtLink>
-    </v-col>
-    <v-col class="item" cols="6" align="center">
-      <NuxtLink to="" tag="div">
-        <v-card height="150" max-width="150">
-          <v-card-text>カテゴリ３</v-card-text>
-        </v-card>
-      </NuxtLink>
-    </v-col>
-    <v-col class="item" cols="6" align="center">
-      <NuxtLink to="" tag="div">
-        <v-card height="150" max-width="150">
-          <v-card-text>カテゴリ４</v-card-text>
-        </v-card>
-      </NuxtLink>
-    </v-col>
-  </v-row>
-  </div>
+  <v-container class="container" align-content="center" fluid>
+    <div class="top" align="center">
+      <div class="logo">
+        <ul>
+          <li><img src="~/assets/img/logo.png" width="150px"></li>
+          <li><img src="~/assets/img/copy.png" width="230px"></li>
+        </ul>
+      </div>
+      <v-btn class="btn" color="#FFAB91"><NuxtLink to="/signup" tag="div">はじめる</NuxtLink></v-btn>
+    </div>
+  </v-container>
 </template>
 
 <script>
 </script>
 
 <style>
-.home {
-  margin-top: 10px;
+.container {
+  padding: 15px;
 }
-.item {
-  padding: 5px;
+.top {
+  margin-bottom: 50px;
+}
+.logo {
+  margin-top: 150px;
+  margin-bottom: 200px;
+}
+.logo li {
+  list-style-type: none;
+}
+li {
   margin-bottom: 5px;
+}
+.btn {
+  cursor: pointer;
+  color: rgb(76, 86, 95);
 }
 </style>

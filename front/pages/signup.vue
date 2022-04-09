@@ -1,6 +1,7 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12" md="4" align="center">
+    <HeaderSignup />
+    <v-col class="form" cols="12" md="4" align="center">
       <h2>Sign Up</h2>
       <form>
         <v-text-field v-model="name" :counter="10" label="Name" data-vv-name="name" required></v-text-field>
@@ -23,7 +24,8 @@
           :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
           @click:append="show2 = !show2"
         ></v-text-field>
-        <v-btn class="mr-4" @click="signup" color="#FFAB91">登録</v-btn>
+        <v-btn class="btn" @click="signup" color="#FFAB91">登録</v-btn>
+        <p>既にアカウントをお持ちの方は<NuxtLink to="/login">ログイン</NuxtLink></p>
         <p v-if="error" class="errors">{{ error }}</p>
       </form>
     </v-col>
@@ -82,20 +84,32 @@ export default {
           err
         });
       });
-      
-    this.$router.push("/");
+      this.$router.push("/works");
     }
   }
 };
 </script>
 
 <style scoped>
+.form{
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+h2 {
+  color: rgb(76, 86, 95);
+}
 .errors {
   color: red;
   margin-top: 20px;
 }
-h2 {
-  color: rgb(76, 86, 95);
+.btn {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+p {
+  color: rgb(44, 51, 56);
+  font-size: 13px;
+  margin-bottom: 20px;
 }
 </style>
 
