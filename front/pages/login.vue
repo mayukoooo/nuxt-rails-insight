@@ -57,7 +57,7 @@ export default {
 <style scoped>
 .form{
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 }
 .errors {
   color: red;

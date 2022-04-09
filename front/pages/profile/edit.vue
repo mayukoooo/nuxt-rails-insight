@@ -2,6 +2,7 @@
 <div>
   <HeaderShow />
   <p>プロフィール編集ページ</p>
+  <Footer />
 </div>
 </template>
 

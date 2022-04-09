@@ -13,6 +13,7 @@
       <!-- <NuxtLink to="/"><v-btn @click="$router.push('/')" color="#FFAB91">もどる</v-btn></NuxtLink> -->
       <v-btn class="btn" @click.prevent="addAnswer" color="#FFAB91">保存</v-btn>
     </div>
+    <Footer />
   </v-container>
 </template>
 
@@ -52,7 +53,7 @@ export default {
         // answer: [...this.user.answer, data]
       //  });
       }))),
-      this.$router.push('/')
+      this.$router.push('/works')
     },
   },
 };

@@ -16,6 +16,7 @@
     <div align="center">
       <v-btn class="btn" @click.prevent="removeAnswer" color="#FFAB91">削除</v-btn>
     </div>
+    <Footer />
   </div>
 </template>
 

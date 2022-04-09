@@ -2,6 +2,7 @@
   <div>
     <HeaderShow />
     <p>Friendsページ</p>
+    <Footer />
   </div>
 </template  >
 

@@ -1,8 +1,8 @@
 <template>
 <div>
   <HeaderMain />
-    <div v-if="user"></div>
-    <!-- <p>名前：{{ user.name }}</p> -->
+  <!-- <div v-if="user"></div>
+  <p>こんにちは　{{ user.name }}さん</p> -->
   <v-row class="home" justify="center" align-content="center">
     <v-col class="item" cols="6" align="center">
       <NuxtLink to="/works/_id" tag="div">
@@ -33,6 +33,7 @@
       </NuxtLink>
     </v-col>
   </v-row>
+  <Footer />
   </div>
 </template>
 
@@ -56,6 +57,7 @@ export default {
 <style>
 .home {
   margin-top: 10px;
+  margin-bottom: 150px;
 }
 .item {
   padding: 5px;

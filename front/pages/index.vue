@@ -18,6 +18,7 @@
 <style>
 .container {
   padding: 15px;
+  margin-bottom: 100px;
 }
 .top {
   margin-bottom: 50px;

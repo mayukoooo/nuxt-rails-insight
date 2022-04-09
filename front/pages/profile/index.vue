@@ -32,6 +32,7 @@
         </div>
       </v-col>
     </v-row>
+    <Footer />
   </v-container>
 </template>
 

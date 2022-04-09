@@ -1,6 +1,7 @@
 <template>
-  <v-row justify="center">
-    <HeaderSignup />
+<div>
+  <HeaderSignup />
+  <v-container class="container">
     <v-col class="form" cols="12" md="4" align="center">
       <h2>Sign Up</h2>
       <form>
@@ -29,7 +30,8 @@
         <p v-if="error" class="errors">{{ error }}</p>
       </form>
     </v-col>
-  </v-row>
+  </v-container>
+</div>
 </template>
 
 <script>
@@ -93,7 +95,7 @@ export default {
 <style scoped>
 .form{
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 }
 h2 {
   color: rgb(76, 86, 95);
@@ -110,6 +112,11 @@ p {
   color: rgb(44, 51, 56);
   font-size: 13px;
   margin-bottom: 20px;
+}
+.container {
+  margin: 0px;
+  margin-right: auto;
+  margin-left: auto;
 }
 </style>
 
