@@ -1,6 +1,13 @@
 <template>
   <div>
-    <HeaderEdit />
+    <v-app-bar class="head" fixed app>
+    <NuxtLink to="/myworks/1" tag="div">戻る</NuxtLink>
+    <v-spacer />
+    <NuxtLink to="/works"><img src="~/assets/img/logo.png" width="95px"></NuxtLink>
+    <v-spacer />
+    <NuxtLink to="/myworks/categoryid" tag="div"><v-btn class="save" color="#FFAB91">編集</v-btn></NuxtLink>
+    </v-app-bar>
+      <p>my works編集ページ</p>
     <p v-for="answer in answers" :key="answer.id">
       <v-container fluid>
         <v-col cols="12" sm="12">
@@ -47,11 +54,11 @@ export default {
         await Promise.all(this.answers.map((async item => {
           console.log(item)
           console.log(item.id)
-          await this.$axios.$delete("/v1/answers", {
+          await this.$axios.$delete(`/v1/answers/${item.id}`, {
             id: item.id
           });
         })));
-        this.$router.push("/works")
+        // this.$router.push("/works")
       }
     },
   },
