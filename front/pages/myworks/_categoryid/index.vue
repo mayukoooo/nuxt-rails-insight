@@ -22,34 +22,53 @@
 
 <script>
 export default {
+  data() {
+    return {
+      answers: [],
+    };
+  },
+  computed: {
+    user() {
+      return this.$store.state.auth.currentUser;
+    },
+  },
   async asyncData({ $axios }) {
     const answers = await $axios.$get(
       "/v1/answers"
     );
+    console.log(answers)
     return { answers };
   },
   methods: {
-    async removeAnswer(answer) {
+    async removeAnswer() {
       const res = confirm("本当に削除しますか？");
       if (res) {
-        await axios.delete(`/v1/answers/${answer.id}`);
+        console.log(this.answers)
+        await Promise.all(this.answers.map((async item => {
+          console.log(item)
+          console.log(item.id)
+          await this.$axios.$delete("/v1/answers", {
+            id: item.id
+          });
+        })));
+        this.$router.push("/works")
       }
-    this.$router.push('/')
     },
   },
-  fetch({
-    store,
-    redirect
-  }) {
-    store.watch(
-      state => state.auth.currentUser,
-      (newUser, oldUser) => {
-        if (!newUser) {
-          return redirect("/login");
-        }
-      }
-    );
-  },
+
+  // fetch({
+  //   store,
+  //   redirect
+  // }) {
+  //   store.watch(
+  //     state => state.auth.currentUser,
+  //     (newUser, oldUser) => {
+  //       if (!newUser) {
+  //         return redirect("/login");
+  //       }
+  //     }
+  //   );
+  // },
 }
 </script>
 
