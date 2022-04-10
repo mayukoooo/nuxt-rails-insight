@@ -1,5 +1,5 @@
 <template>
-  <v-container class="container" align-content="center" fluid>
+  <v-container class="con" align-content="center" fluid>
     <div class="top" align="center">
       <div class="logo">
         <ul>
@@ -16,7 +16,7 @@
 </script>
 
 <style>
-.container {
+.con {
   padding: 15px;
   margin-bottom: 100px;
 }
