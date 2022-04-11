@@ -13,10 +13,14 @@ class V1::AnswersController < ApplicationController
     end
   end
 
-  # def destroy
-  #   answer = Answer.find(params[:id])
-  #   render json: answer if answer.destroy
-  # end
+  def update
+    # answer = Answer.find_by(id: params[:id])
+    if answer.update(answer_params)
+      render json: answer
+    else
+      render json: answer.errors
+    end
+  end
 
   def destroy
     answer = Answer.find(params[:id])

@@ -5,7 +5,7 @@
     <v-spacer />
     <NuxtLink to="/works"><img src="~/assets/img/logo.png" width="95px"></NuxtLink>
     <v-spacer />
-    <NuxtLink to="/myworks/categoryid" tag="div"><v-btn class="save" color="#FFAB91">編集</v-btn></NuxtLink>
+    <NuxtLink to="/myworks/categoryid/edit" tag="div"><v-btn class="save" color="#FFAB91">編集</v-btn></NuxtLink>
     </v-app-bar>
       <p>my works編集ページ</p>
     <p v-for="answer in answers" :key="answer.id">
@@ -21,7 +21,7 @@
       </v-container>
     </p>
     <div align="center">
-      <v-btn class="btn" @click.prevent="removeAnswer" color="#FFAB91">削除</v-btn>
+      <v-btn class="btn" @click.prevent="removeAnswer" color="#D65850">削除</v-btn>
     </div>
     <Footer />
   </div>
@@ -58,7 +58,7 @@ export default {
             id: item.id
           });
         })));
-        // this.$router.push("/works")
+        this.$router.push("/works")
       }
     },
   },
@@ -80,6 +80,10 @@ export default {
 </script>
 
 <style>
+.save {
+  color: rgb(44, 51, 56);
+  margin-bottom: 10px;
+}
 .btn {
   margin: 20px;
   cursor: pointer;
