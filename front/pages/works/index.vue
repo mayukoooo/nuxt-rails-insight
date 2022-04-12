@@ -51,6 +51,21 @@ export default {
   created() {
     console.log("API_KEY:", process.env.API_KEY);
   },
+  methods: {
+    fetch({
+    store,
+    redirect
+  }) {
+    store.watch(
+      state => state.auth.currentUser,
+      (newUser, oldUser) => {
+        if (!newUser) {
+          return redirect("/login");
+        }
+      }
+    );
+  },
+  }
 }
 </script>
 
