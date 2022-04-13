@@ -2,7 +2,7 @@
 <div>
   <HeaderSignup />
   <v-container class="container">
-    <v-col class="form" cols="12" md="4" align="center">
+    <v-col class="form" align="center">
       <h2>Sign Up</h2>
       <form>
         <v-text-field v-model="name" :counter="10" label="Name" data-vv-name="name" required></v-text-field>
@@ -93,6 +93,10 @@ export default {
 </script>
 
 <style scoped>
+.form.col {
+  padding: 50px 200px;
+  margin: 0px;
+}
 .form{
   margin-top: 40px;
   margin-bottom: 100px;
@@ -111,7 +115,7 @@ h2 {
 p {
   color: rgb(44, 51, 56);
   font-size: 13px;
-  margin-bottom: 20px;
+  margin-bottom: 310px;
 }
 .container {
   margin: 0px;

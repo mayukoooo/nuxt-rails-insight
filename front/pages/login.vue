@@ -1,17 +1,19 @@
 <template>
   <v-row justify="center">
     <HeaderSignup />
-    <v-col class="form" cols="12" md="4" align="center">
-      <h2>Login</h2>
-      <form>
-        <v-text-field v-model="email" :counter="20" label="email" required></v-text-field>
-        <v-text-field v-model="password" label="password" required :type="show1 ? 'text' : 'password'"
-          :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" @click:append="show1 = !show1"></v-text-field>
-        <v-btn class="btn" @click="login" color="#FFAB91">ログイン</v-btn>
-        <p>アカウントの新規作成は<NuxtLink to="/signup">こちら</NuxtLink></p>
-        <p v-if="error" class="errors">{{ error }}</p>
-      </form>
-    </v-col>
+    <v-container class="container">
+      <v-col class="form" align="center">
+        <h2>Login</h2>
+        <form>
+          <v-text-field v-model="email" :counter="20" label="email" required></v-text-field>
+          <v-text-field v-model="password" label="password" required :type="show1 ? 'text' : 'password'"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" @click:append="show1 = !show1"></v-text-field>
+          <v-btn class="btn" @click="login" color="#FFAB91">ログイン</v-btn>
+          <p>アカウントの新規作成は<NuxtLink to="/signup">こちら</NuxtLink></p>
+          <p v-if="error" class="errors">{{ error }}</p>
+        </form>
+      </v-col>
+    </v-container>
   </v-row>
 </template>
 
@@ -55,6 +57,10 @@ export default {
 </script>
 
 <style scoped>
+.form.col {
+  padding: 50px 200px;
+  margin: 0px;
+}
 .form{
   margin-top: 40px;
   margin-bottom: 100px;
@@ -73,6 +79,6 @@ h2 {
 p {
   color: rgb(44, 51, 56);
   font-size: 13px;
-  margin-bottom: 160px;
+  margin-bottom: 310px;
 }
 </style>
