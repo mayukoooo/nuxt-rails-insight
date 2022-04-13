@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .form.col {
-  padding: 50px 200px;
+  padding: 50px;
   margin: 0px;
 }
 .form{
@@ -79,6 +79,6 @@ h2 {
 p {
   color: rgb(44, 51, 56);
   font-size: 13px;
-  margin-bottom: 310px;
+  margin-bottom: 500px;
 }
 </style>

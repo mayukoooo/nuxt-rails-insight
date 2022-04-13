@@ -118,7 +118,7 @@ h4 {
 }
 h5 {
   color: #130569;
-  font-size: 16px;
+  font-size: 15.5px;
   margin-bottom: 5px;
 }
 .btn {

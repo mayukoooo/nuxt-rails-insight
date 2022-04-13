@@ -94,7 +94,7 @@ export default {
 
 <style scoped>
 .form.col {
-  padding: 50px 200px;
+  padding: 50px;
   margin: 0px;
 }
 .form{
