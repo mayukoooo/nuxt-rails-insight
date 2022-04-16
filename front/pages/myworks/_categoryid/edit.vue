@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-app-bar class="head" fixed app>
-    <!-- <NuxtLink to="/myworks/1" tag="div">戻る</NuxtLink> -->
-    <input type="button" onclick="window.history.back();" value="戻る">
+    <NuxtLink to="/works" tag="div">戻る</NuxtLink>
     <v-spacer />
     <NuxtLink to="/works"><img src="~/assets/img/logo.png" width="95px"></NuxtLink>
     <v-spacer />
@@ -36,11 +35,15 @@ export default {
       return this.$store.state.auth.currentUser;
     },
   },
-  async asyncData({ $axios }) {
-    const answers = await $axios.$get(
-      "/v1/answers"
-    );
-    console.log(answers)
+  async asyncData({ $axios, params, store }) {
+    let answers = await $axios.$get("/v1/answers");
+    console.log(answers);
+    answers = answers.filter((answer) => {
+      return answer.question.category_id == params.categoryid && answer.user_id == store.state.auth.currentUser.id;
+    });
+    answers.sort((a, b) => {
+      return a.question_id - b.question_id;
+    });
     return { answers };
   },
   methods: {
