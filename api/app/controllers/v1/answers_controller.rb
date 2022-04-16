@@ -14,7 +14,7 @@ class V1::AnswersController < ApplicationController
   end
 
   def update
-    # answer = Answer.find_by(id: params[:id])
+    answer = Answer.find(params[:id])
     if answer.update(answer_params)
       render json: answer
     else

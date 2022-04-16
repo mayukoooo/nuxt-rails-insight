@@ -52,6 +52,7 @@ export default {
         await this.$axios.$put(`/v1/answers/${item.id}`, {
           answer: {
             id: item.id,
+            user_id: this.user.id,
             answer: item.answer,
             question_id: item.question_id,
           }
