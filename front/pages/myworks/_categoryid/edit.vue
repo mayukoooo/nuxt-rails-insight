@@ -37,7 +37,7 @@ export default {
   },
   async asyncData({ $axios, params, store }) {
     let answers = await $axios.$get("/v1/answers");
-    console.log(answers);
+    // console.log(answers);
     answers = answers.filter((answer) => {
       return answer.question.category_id == params.categoryid && answer.user_id == store.state.auth.currentUser.id;
     });
@@ -48,10 +48,10 @@ export default {
   },
   methods: {
     async updateAnswer() {
-      console.log(this.answers)
+      // console.log(this.answers)
       await Promise.all(this.answers.map((async item => {
-        console.log(item)
-        console.log(item.answer)
+        // console.log(item)
+        // console.log(item.answer)
         await this.$axios.$put(`/v1/answers/${item.id}`, {
           answer: {
             id: item.id,

@@ -67,6 +67,11 @@
 </script>
 
 <style>
+.v-main__wrap {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  width: 100%;
+  height: 100%;
+}
 .container.con.container--fluid.align-content {
   margin: 0;
 }

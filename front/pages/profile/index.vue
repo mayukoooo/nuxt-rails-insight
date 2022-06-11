@@ -4,14 +4,6 @@
       <HeaderEdit />
       <v-col align="center" class="items" cols="12" md="12">
         <div class="item">
-          <h4>ユーザーID</h4>
-          <v-card class="mx-auto" max-width="344">
-            <v-card-text>
-              <p>{{ user.id }}</p>
-            </v-card-text>
-          </v-card>
-        </div>
-        <div class="item">
           <h4>ユーザー名</h4>
           <v-card class="mx-auto" max-width="344">
             <v-card-text>
@@ -73,6 +65,17 @@ export default {
 </script>
 
 <style>
+/* .v-main {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  width: 100%;
+  height: 100%;
+  padding: 0px 0px;
+} */
+html {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  width: 100%;
+  height: 100%;
+}
 .items {
   margin-top: 5px;
   margin-bottom: 20px;
