@@ -1,10 +1,8 @@
 <template>
   <v-container class="container" align-content="center" fluid>
     <HeaderMain />
-    <div class="message">
-      <p>☁️ あなたの{{ questions[1].category.name }}は？ ☁️</p>
-    </div>
     <v-row>
+      {{ id }}
       <v-col cols="12" md="12">
         <p v-for="question in questions" :key="question">
           {{ question.text }}
@@ -13,6 +11,7 @@
       </v-col>
     </v-row>
     <div align="center">
+      <!-- <NuxtLink to="/"><v-btn @click="$router.push('/')" color="#FFAB91">もどる</v-btn></NuxtLink> -->
       <v-btn class="btn" @click.prevent="addAnswer" color="#FFAB91">保存</v-btn>
     </div>
     <Footer />
@@ -24,7 +23,6 @@ export default {
   data() {
     return {
       questions: [],
-      id: this.$route.params.categoryid,
     };
   },
   computed: {
@@ -34,6 +32,7 @@ export default {
   },
   async asyncData({ $axios, params }) {
     let questions = await $axios.$get("/v1/questions");
+    // console.log($route.params);
     questions = questions.filter((question) => {
       return question.category_id == params.categoryid;
     });
@@ -76,15 +75,6 @@ export default {
 <style>
 .container {
   padding: 15px;
-}
-.message {
-  text-align: center;
-}
-.message p {
-  color: #130569;
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 .btn {
   margin: 20px;
