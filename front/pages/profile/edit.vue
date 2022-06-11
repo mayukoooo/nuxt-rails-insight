@@ -43,17 +43,17 @@ export default {
     const answers = await $axios.$get(
       "/v1/answers"
     );
-    console.log(answers)
+    // console.log(answers)
     return { answers };
   },
   methods: {
     async removeAnswer() {
       const res = confirm("本当に削除しますか？");
       if (res) {
-        console.log(this.answers)
+        // console.log(this.answers)
         await Promise.all(this.answers.map((async item => {
-          console.log(item)
-          console.log(item.id)
+          // console.log(item)
+          // console.log(item.id)
           await this.$axios.$delete("/v1/answers", {
             id: item.id
           });

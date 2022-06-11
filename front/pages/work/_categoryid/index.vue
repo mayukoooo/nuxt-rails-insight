@@ -40,11 +40,11 @@ export default {
         answer: this.answer,
         question_id: this.question_id,
       };
-      console.log(answer)
+      // console.log(answer)
       const { data } = await $axios.post("/v1/answers", {
         answer
       });
-      console.log(data)
+      // console.log(data)
       this.$store.dispatch("auth/setUser", {
         ...this.user,
         answers: [...this.user.answers, data]

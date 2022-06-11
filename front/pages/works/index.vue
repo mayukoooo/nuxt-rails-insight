@@ -1,7 +1,6 @@
 <template>
 <div>
   <HeaderMain />
-  <NuxtLink to="/friends">ここ</NuxtLink>
   <div v-if="user" class="welcome">
     <p>こんにちは🐈　{{ user.name }}さん</p>
     <p>今日はどのワークに取り組みますか？</p>
@@ -46,7 +45,7 @@ export default {
   },
   created() {
     // location.reload();
-    console.log("API_KEY:", process.env.API_KEY);
+    // console.log("API_KEY:", process.env.API_KEY);
   },
   methods: {
     async newCreate1() {
