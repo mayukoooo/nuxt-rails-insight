@@ -36,7 +36,6 @@
 
 <script>
 import firebase from "@/plugins/firebase";
-
 export default {
   data() {
     return {
@@ -123,4 +122,3 @@ p {
   margin-left: auto;
 }
 </style>
-
