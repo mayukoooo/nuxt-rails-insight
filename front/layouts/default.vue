@@ -5,10 +5,6 @@
         <Nuxt />
       </v-container>
     </v-main>
-    
-    <div>
-      <!-- <Footer /> -->
-    </div>
   </div>
 </template>
 
@@ -25,7 +21,8 @@
   height: 100%;
 }
 .container {
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .logo {
   text-align: center;

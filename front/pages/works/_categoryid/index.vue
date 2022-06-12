@@ -41,15 +41,12 @@ export default {
   },
   methods: {
     async addAnswer() {
-      // console.log(this.questions)
       await Promise.all(this.questions.map((async item => {
-        // console.log(item)
         const answer = {
           user_id: this.user.id,
           question_id: item.id,
           answer: item.answer,
         }
-        // console.log(answer) 
         await this.$axios.post("/v1/answers", {
           answer
         })
