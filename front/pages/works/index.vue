@@ -44,8 +44,7 @@ export default {
     }
   },
   created() {
-    // location.reload();
-    // console.log("API_KEY:", process.env.API_KEY);
+    console.log("API_KEY:", process.env.API_KEY);
   },
   methods: {
     async newCreate1() {
